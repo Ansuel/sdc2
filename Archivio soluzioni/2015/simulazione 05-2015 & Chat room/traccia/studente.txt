@@ -1,0 +1,7 @@
+==========================
+INSERIRE QUI I PROPRI DATI
+==========================
+
+Matricola: xxx
+Cognome: yyy
+Nome: zzz

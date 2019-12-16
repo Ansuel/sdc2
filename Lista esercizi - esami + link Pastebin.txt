@@ -1,0 +1,30 @@
+2015
+esame 06-2015 & Client per il recupero parallelo di testo da un server
+esame 07-2015 & Applicazione per il calcolo parallelo di statistiche sulla lunghezza delle parole di un testo
+esame 09-2015 & Applicazione server per il processamento di immagini
+pre-esame 05-2015 & YELL Server
+simulazione 05-2015 & Chat room
+
+2016
+esonero 1 - Server multi‐thread con comunicazione su socket & Processo con figli e nipoti
+esonero 2 - Processi padre‐figlio che comunicano via doppia pipe & Processo multi‐thread con paradigma prodcons
+giugno -  Comunicazione bidirezionale via FIFO & Applicazione multi‐processo multi‐thread single‐prod single‐cons
+luglio - Comunicazione unidirezionale padrefigli via pipe con sincronizzazione & Ricerca multi‐thread su array
+settembre -  EchoServer multi-process con comunicazione via socket & Produttore Consumatore su N buffer in parallelo
+
+2017
+simulazione -  Processo multi-thread con paradigma prodcons &  Comunicazione bidirezionale via pipe tra due processi
+
+2019
+1 - Processo multi-thread con paradigma prodcon
+2 - Ricerca multi-thread su array
+3 - Comunicazione unidirezionale padrefigli via pipe con sincronizzazione
+4 - Comunicazione bidirezionale via pipe tra due processi
+
+PASTEBIN MASCHERA:
+UTIL.C https://pastebin.com/h387RZ4Y
+UTIL.H https://pastebin.com/FJryprWL
+COMMON.H https://pastebin.com/1tGmtuVC
+SERVER.C https://pastebin.com/NY6mv75N
+CLIENT.C https://pastebin.com/fWqtCqSx
+MAKEFILE https://pastebin.com/aSHPPtbF

@@ -1,0 +1,2 @@
+ciao questo è un file di input di test.
+

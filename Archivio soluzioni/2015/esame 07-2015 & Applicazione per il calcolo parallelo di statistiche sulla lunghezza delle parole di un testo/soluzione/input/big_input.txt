@@ -1,0 +1,220 @@
+Calcolo distribuito
+Da Wikipedia, l'enciclopedia libera.
+
+Il calcolo distribuito è un campo dell'informatica che studia i sistemi distribuiti. Un sistema distribuito consiste in tanti e autonomi computer che comunicano attraverso una rete. I computer interagiscono tra loro al fine di raggiungere un obiettivo comune. Un software eseguito in un sistema distribuito è chiamato programma distribuito, e la programmazione distribuita è il processo di scrittura di tali software.
+
+Il calcolo distribuito si riferisce anche all'uso di sistemi distribuiti per risolvere problemi computazionali. Nel calcolo distribuito, un problema è diviso in molti compiti ognuno dei quali è risolto da un singolo computer.
+
+Indice
+
+    1 Introduzione
+        1.1 Calcolo parallelo o distribuito?
+    2 Storia
+    3 Applicazioni
+    4 Fondamenti teorici
+        4.1 Modelli
+        4.2 Un esempio
+        4.3 Misure di complessità
+        4.4 Altri problemi
+        4.5 Proprietà dei sistemi distribuiti
+    5 Architetture
+    6 Note
+    7 Voci correlate
+    8 Altri progetti
+
+Introduzione
+
+La parola distribuito in termini come “sistema distribuito”, “programmazione distribuita”, e “algoritmo distribuito” originariamente si riferiva a reti di computer dove singoli computer erano fisicamente distribuiti in certe aree geografiche. I termini sono oggi utilizzati in un più ampio senso, anche quando si riferisce a processi autonomi che sono eseguiti sullo stesso computer fisico ed interagiscono tra loro tramite il passaggio di messaggi. Mentre non c'è una singola definizione di sistema distribuito, le seguenti proprietà sono comunemente usate:
+
+    Ci sono molte autonome entità computazionali, ognuna delle quali ha la propria memoria locale.
+    Le entità comunicano tra loro con il passaggio di messaggi.
+
+In questa trattazione, le entità computazionali verranno chiamate computer o nodi.
+
+Un sistema distribuito può avere un obiettivo comune, come risolvere un grande problema computazionale. Alternativamente, ogni computer può avere il proprio utente con bisogni individuali, e lo scopo del sistema distribuito è di coordinare l'uso delle risorse condivise o fornire servizi di comunicazione all'utente.
+
+Altre tipiche proprietà dei sistemi distribuiti sono i seguenti:
+
+    Il sistema tollera guasti a singoli computer.
+    La struttura del sistema (topologia di rete, latenza di rete, numero di computer) non è conosciuta in anticipo, il sistema può consistere in differenti tipi di computer e collegamenti di rete, e può cambiare durante l'esecuzione del programma distribuito.
+    Ogni computer ha solamente una vista limitata ed incompleta del sistema. Ogni computer conosce solo una parte dell'input.
+
+Calcolo parallelo o distribuito?
+
+I termini “calcolo concorrente”, “calcolo parallelo”, e “calcolo distribuito” hanno molte sovrapposizioni, e non esiste nessuna chiara distinzione tra di loro. Lo stesso sistema può essere caratterizzato sia come “parallelo” sia come “distribuito”; i processori in un sistema distribuito tipico elaborano concorrentemente in parallelo. Il calcolo parallelo può esser visto come una forma particolare strettamente unita al calcolo distribuito, ed il calcolo distribuito può esser visto come una forma particolare strettamente unita al calcolo parallelo. Tuttavia è possibile classificare sistemi concorrenti come “paralleli” o “distribuiti” tramite i seguenti criteri:
+
+    Nel calcolo parallelo tutti i processori devono accedere ad una memoria condivisa. La memoria condivisa può essere usata per lo scambio di informazioni tra i processori.
+    Nel calcolo distribuito ogni processore ha la propria memoria privata (memoria distribuita). Le informazioni sono scambiate grazie al passaggio di messaggi tra i processori.
+
+L'immagine a destra illustra la differenza tra sistemi distribuiti e sistemi paralleli.
+(a)–(b) Sistema distribuito. (c) Sistema parallelo.
+
+La figura (a) è la vista schematica di un tipico sistema distribuito: il sistema è rappresentato come un grafo in cui ogni nodo (vertex) è un computer ed ogni riga (linea tra due nodi) è un collegamento di comunicazione. La figura (b) mostra lo stesso sistema distribuito più in dettaglio: ogni computer ha la propria memoria locale, e le informazioni possono essere scambiate solamente grazie al passaggio di messaggi da un nodo ad un altro usando i nodi di comunicazione disponibili. La figura (c) mostra un sistema parallelo in cui ogni processore ha accesso diretto alla memoria condivisa.
+
+La situazione è ulteriormente complicata dai tradizionali usi dei termini algoritmo parallelo e distribuito che non corrispondono alla definizione di sistemi paralleli e distribuiti. Tuttavia, come regola generale, il calcolo parallelo ad alte prestazioni con memoria condivisa multiprocessore usa algoritmi paralleli mentre per la coordinazione di sistemi distribuiti su larga scala si usano algoritmi distribuiti.
+Storia
+
+L'uso di processi concorrenti che comunicano con il passaggio di messaggi ha le sue radici nelle architetture di sistemi operativi studiati negli anni 1960. Il primo sistema distribuito diffuso è stato il local-area network come Ethernet che è stato inventato negli anni 1970.
+
+Arpanet, il predecessore di internet, è stato introdotto nei tardi anni 1960 e l'ARPANET e-mail è stata inventata nei primi anni 1970. La posta elettronica divenne l'applicazione di maggior successo di ARPANET ed è probabilmente il primo esempio di applicazione distribuita su larga scala. In aggiunta ad ARPANET ed al suo successore Internet, altre prime reti di computer in tutto il mondo sono state Usenet e Fidonet dagli anni 1980, entrambe le quali sono state utilizzate per sostenere sistemi distribuiti di discussione.
+
+Lo studio del calcolo distribuito divenne propriamente branca dell'informatica nei tardi anni 1970 e primi 1980. La prima conferenza nel campo “Simposio dei principi del calcolo distribuito”, risale al 1980 e la sua controparte europea “Simposio internazionale sul calcolo distribuito” fu per la prima volta tenuta nel 1985.
+Applicazioni
+
+Ci sono due principali ragioni per usare sistemi distribuiti ed il calcolo distribuito. Primo, la natura dell'applicazione può richiedere l'uso di un network di comunicazione che collega più computer. Per esempio, i dati sono prodotti in una certa locazione fisica e servono in un'altra locazione.
+
+Secondo, sono molti i casi in cui l'uso di un singolo computer sarebbe possibile in linea di principio, ma l'uso di un sistema distribuito è vantaggioso per motivi pratici. Per esempio, può essere più efficiente ottenere il livello prestazionale desiderato usando un cluster di diversi computer di fascia bassa, in confronto con un sistema non distribuito e non ci sono single point of failure. Inoltre, un sistema distribuito può essere più facile da espandere e dirigere confronto ad un sistema uniprocessore monolitico.
+
+Esempi di sistemi distribuiti ed applicazioni di calcolo distribuito sono inclusi di seguito:
+
+    Reti di telecomunicazioni:
+        Reti telefoniche e reti cellulari
+        Reti di computer come Internet
+        Reti di sensori senza fili
+        Algoritmi di routing
+    Applicazioni di rete:
+        World wide web e reti peer-to-peer
+        Giochi online multiplayer e comunità di realtà virtuale
+        Databases distribuiti e sistemi di gestione di databases distribuiti
+        File systems di rete
+        Sistemi di elaborazione di informazioni distribuite come sistemi bancari e sistemi di prenotazione delle compagnie aeree.
+    Controllo in tempo reale:
+        Sistemi di controllo aereo
+        Sistemi di controllo industriali
+    Calcolo parallelo:
+        Calcolo scientifico, incluso il cluster computing, il grid computing ed altri vari progetti di calcolo volontario; vedere la lista dei progetti di calcolo distribuito.
+        Rendering distribuito in computer grafica
+
+Fondamenti teorici
+Modelli
+
+Molti compiti che vorremmo automatizzare usando il computer sono di tipo domanda-risposta: facciamo una domanda ed il computer dovrebbe dare la risposta. In informatica questi compiti sono chiamati problemi computazionali. Formalmente, un problema computazionale consiste in istanze, unitamente ad una soluzione per ogni istanza. Le istanze sono domande che possiamo porre e le soluzioni sono le risposte desiderate a queste domande.
+
+L'informatica cerca di capire quali problemi computazionali si possono risolvere usando un computer (teoria della computabilità) e quanto efficientemente (teoria della complessità computazionale). Tradizionalmente è come dire che un problema può essere risolto usando un computer se possiamo scrivere un algoritmo che produce una soluzione corretta per qualsiasi istanza data. Un tale algoritmo può essere implementato come un software che viene eseguito su un generico computer: il programma legge l'istanza del problema da un input, esegue dei calcoli, e produce la soluzione come output. Formalismi come macchine ad accesso casuale o macchine universali di Turing possono essere usati come modelli astratti di un generico computer sequenziale che esegue un tale algoritmo.
+
+Il campo del calcolo concorrente e distribuito studia questioni simili nel caso di molti computer, o un computer che esegue una rete di processi interagenti: quali problemi computazionali possono essere risolti in una tale rete e con quale efficienza? Tuttavia non è così evidente cosa significhi risolvere un problema nel caso di sistemi concorrenti o distribuiti: per esempio, qual è il compito del progettista dell'algoritmo e qual è l'equivalente concorrente e/o distribuito per un generico computer?
+
+La discussione sotto si concentra sul caso di molti computer, ma in ogni caso molte di queste questioni sono le stesse per i processi concorrenti eseguiti su un singolo computer.
+
+Ci sono tre casi comunemente utilizzati:
+
+Algoritmi paralleli in modelli a memoria condivisa
+
+    Tutti i computer hanno accesso alla memoria condivisa. Il progettista dell'algoritmo sceglie il programma eseguito da ogni computer.
+    Un modello teorico è la macchina ad accesso parallelo casuale (PRAM). Tuttavia, il classico modello PRAM assume accesso sincrono alla memoria condivisa.
+    Un modello che è più vicino al comportamento delle macchine multiprocessore del mondo reale prende in considerazione l'uso di istruzioni macchina come Compare-and-swap (CAS) che è quello della memoria asincrona condivisa.
+
+Algoritmi paralleli nel modello a passaggio di messaggi
+
+    Il progettista dell'algoritmo sceglie la struttura della rete nonché il programma eseguito da ogni computer
+    Sono usati modelli come circuiti booleani e reti di ordinamento. Un circuito booleano può esser visto come una rete di computer: ogni gate è un computer che esegue un programma estremamente semplice. Similmente, anche una rete di ordinamento può esser vista come una rete di computer: ogni comparatore è un computer.
+
+Algoritmi distribuiti nel modello a passaggio di messaggi
+
+    Il progettista dell'algoritmo sceglie solamente il programma. Tutti i computer eseguono lo stesso programma. Il sistema deve funzionare correttamente a prescindere dalla struttura della rete.
+    Un modello comunemente usato è il grafo con un macchina a stati finiti per nodo.
+
+Nel caso di algoritmi distribuiti i problemi computazionali sono tipicamente legati ai grafi. Spesso il grafo che descrive la struttura della rete di computer è l'istanza del problema. Questo caso è illustrato nel seguente esempio.
+Un esempio
+
+Si consideri il problema computazionale di trovare una colorazione di un grafo G dato. Diversi settori potrebbero seguire i seguenti approcci:
+
+Algoritmi centralizzati
+
+    Il grafo G è codificato come una stringa, e la stringa è data come input ad un computer. Il programma trova una colorazione del grafo, codifica la colorazione come una stringa e dà il risultato in output.
+
+Algoritmi paralleli
+
+    Ancora, il grafo G è codificato come una stringa. Tuttavia più computer possono accedere alla stessa stringa in parallelo. Ogni computer si può focalizzare su una parte del grafo e produrre una colorazione per quella parte.
+    L'attenzione principale è sul calcolo ad alte prestazioni che sfrutta la potenza di elaborazione di più computer in parallelo.
+
+Algoritmi distribuiti
+
+    Il grafo G è la struttura della rete di computer. C'è un computer per ogni nodo di G e un collegamento per ogni estremità di G. Inizialmente ogni computer conosce solamente i suoi immediati vicini nel grafo G; i computer devono scambiarsi messaggi tra loro per scoprire di più della struttura di G. Ogni computer deve produrre il proprio colore come output.
+    L'attenzione principale è sul coordinamento dell'operazione su un arbitrario sistema distribuito.
+
+Mentre il campo degli algoritmi paralleli ha una caratterizzazione diversa rispetto al campo degli algoritmi distribuiti, ci sono diverse interazioni tra i due campi. Per esempio, l'algoritmo Cole–Vishkin per la colorazione dei grafi è stato originariamente presentato come un algoritmo parallelo, ma la stessa tecnica può essere usata direttamente come algoritmo distribuito.
+
+Inoltre, un algoritmo parallelo può essere implementato sia in un sistema parallelo (usando memoria condivisa) che in un sistema distribuito (usando il passaggio di messaggi). Il confine tradizionale tra algoritmi paralleli e distribuiti (scegliere una rete adeguata vs esecuzione in ogni rete) non è come il confine tra sistemi paralleli e distribuiti (memoria condivisa vs passaggio di messaggi).
+Misure di complessità
+
+Un algoritmo centralizzato è efficiente se non richiede molto tempo (numero di passi computazionali) o spazio (ammontare di memoria). Questa misura di complessità danno luogo a classi di complessità come P (problemi decisionali risolvibili in tempo polinomiale) e PSPACE (problemi decisionali risolvibili in spazio polinomiale).
+
+Negli algoritmi paralleli un'altra risorsa in aggiunta a tempo e spazio è il numero di computer. Infatti, spesso c'è un bilanciamento tra il tempo d'esecuzione ed il numero di computer: il problema può essere risolto velocemente se ci sono più computer che elaborano in parallelo. Se un problema decisionale può essere risolto in tempo polilogaritmico usando un numero polinomiale di processori allora il problema si dice che sia in classe NC. La classe NC si può definire altrettanto bene usando il formalismo PRAM o i circuiti booleani. Le macchine PRAM possono simulare efficientemente circuiti booleani e viceversa.
+
+Nelle analisi degli algoritmi distribuiti è data solitamente più attenzione all comunicazione delle operazioni che ai passi computazionali. Forse il più semplice modello di calcolo distribuito è un sistema sincrono dove tutti i nodi operano in blocco. Durante ogni turno di comunicazione, tutti i nodi in parallelo (1) ricevono gli ultimi messaggi dai suoi vicini, (2) effettuano arbitrari calcoli locali e (3) mandano nuovi messaggi ai loro vicini. In tali sistemi, una misura di complessità centrale è il numero di turni di comunicazione sincroni richiesti per completare il compito.
+
+Questa misura di complessità è strettamente collegata al diametro della rete. Sia D il diametro della rete. Da un lato, qualsiasi problema computazionale può essere risolto banalmente in un sistema sincrono distribuito in approssimatamente 2D turni di comunicazione: semplicemente per raccogliere tutte le informazioni in un unico punto (D turni), risolvere il problema, ed informare ogni nodo circa la soluzione (D turni).
+
+Dall'altro lato, se il tempo d'esecuzione dell'algoritmo è molto inferiore a D turni di comunicazione, allora i nodi della rete devono produrre i loro risultati senza avere la possibilità di ottenere informazioni circa le parti lontane della rete. In altre parole, i nodi devono prendere decisioni a livello globale basate su informazioni che sono disponibili nei loro paraggi. Molti algoritmi distribuiti sono conosciuti con il tempo d'esecuzione molto più piccolo di D turni, e la comprensione di quali problemi possono essere risolti da tali algoritmi è uno degli obiettivi centrali della ricerca di questo campo.
+
+Un'altra misura comunemente usata è il numero totale di bit trasmessi nella rete (complessità di comunicazione).
+Altri problemi
+
+I problemi computazionali generalmente consistono nel porre una domanda ad un computer (o ad un sistema distribuito), che elabora la domanda per un po' ed infine produce una risposta e si ferma. Tuttavia, ci sono anche problemi in cui noi vogliamo che il sistema non si fermi mai. Esempi di tali problemi includono il problema dei filosofi a cena ed altri simili problemi a mutua esclusione. In questi problemi il sistema distribuito dovrebbe coordinare costantemente l'uso delle risorse condivise senza la presenza di conflitti o stallo.
+
+Ci sono anche fondamentali sfide che sono uniche per il calcolo distribuito. Il primo esempio è la sfida riguardante il fault-tolerance. Esempi di problemi connessi includono problemi di consenso, Byzantine fault tolerance, e auto stabilizzazione.
+
+Molte ricerche sono anche focalizzate sulla comprensione della natura asincrona dei sistemi distribuiti:
+
+    I Sincronizzatori possono essere usati per eseguire algoritmi sincroni in sistemi asincroni.
+    Il clock logico fornisce un ordine degli eventi in ordine di avvenimento.
+    Gli algoritmi di sincronizzazione di clock forniscono consistenza fisica globale del timbro ora.
+
+Proprietà dei sistemi distribuiti
+
+Finora l'attenzione si è concentrata sulla progettazione di un sistema distribuito che risolve un dato problema. Un problema di ricerca complementare è studiare le proprietà di un dato sistema distribuito.
+
+Il problema della terminazione è un esempio analogo al campo della computazione centralizzata: ci è dato un software ed il compito è decidere se si ferma o va per sempre. Il problema della terminazione è indecidibile nel caso generico, e naturalmente capire il comportamento di una rete di computer è almeno altrettanto difficile come capire il comportamento di un computer.
+
+Tuttavia, ci sono molti interessanti casi particolari che sono decidibili. In particolare, è possibile ragionare sul comportamento di una rete di macchine a stati finiti. Un esempio è dire se una determinata rete interagente di macchine a stati finiti (asincrona e non deterministica) può finire in una situazione di stallo. Questo problema è PSPACE completo, è decidibile, ma è improbabile che ci sia un algoritmo efficiente (centralizzato, parallelo o distribuito) che risolve il problema nel caso di una grande rete.
+Architetture
+
+Per il calcolo distribuito sono usate varie architetture hardware e software. A basso livello è necessario interconnettere CPU multiple con una sorta di rete, indipendentemente dal fatto che la rete sia stampata su un circuito o composta da dispositivi e cavi. Ad alto livello è necessario invece interconnettere i processi eseguiti su quelle CPU con una sorta di sistema di comunicazione.
+
+La programmazione distribuita di solito cade in uno dei numerosi elementi architettonici di base o categorie: Client-server, architettura 3-tier, architettura N-tier, oggetti distribuiti, loose coupling, tight coupling.
+
+    Client-server – Il codice client contatta il server per i dati, che formatta e mostra all'utente. Gli input dati al client sono spediti al server quando rappresentano un dato permanente.
+    Architettura 3-tier – Il sistema 3-tier sposta l'intelligenza del client ad un livello intermedio in modo che il client senza stato possa essere utilizzato. Questo semplifica lo spostamento delle applicazioni. La maggior parte delle applicazioni web è 3-Tier.
+    Architettura N-tier – N-tier si riferisce solitamente ad applicazioni web che inviano le loro richieste al altri servizi. Questo tipo di applicazione è una delle maggiori responsabili del successo delle applicazioni server.
+    Tight coupled (clustered) – Si riferisce solitamente ad un cluster di macchine che lavorano insieme eseguendo un processo condiviso in parallelo. Il compito è suddiviso in parti che sono elaborate individualmente da ognuno e poi rispedite indietro insieme per comporre il risultato finale.
+    Peer-to-peer – Un'architettura dove non sono presenti particolari macchine che forniscono un servizio o gestiscono le risorse di rete. Invece tutte le responsabilità sono uniformemente divise tra tutte le macchine conosciute come "peer". I peer possono funzionare sia come client che come server.
+    Space based – Si riferisce ad una infrastruttura che crea l'illusione (virtualizzazione) di un singolo spazio di indirizzo. I dati sono trasparentemente replicati a seconda dei bisogni delle applicazioni.
+
+Un altro aspetto basilare delle architetture di calcolo distribuito è il metodo di comunicazione ed i lavori di coordinamento tra processi concorrenti. Tramite vari protocolli di scambio messaggi, i processi possono comunicare direttamente con un altro, tipicamente con relazione master/slave. Alternativamente, un'architettura con database centrale potrebbe rendere il calcolo distribuito eseguito senza nessuna forma di comunicazione inter processo, utilizzando un database condiviso.
+Note
+
+Libri
+
+    Andrews, Gregory R. (2000), Foundations of Multithreaded, Parallel, and Distributed Programming, Addison–Wesley, ISBN 0-201-35752-6.
+    Arora, Sanjeev; Barak, Boaz (2009), Computational Complexity – A Modern Approach, Cambridge, ISBN 978-0-521-42426-4.
+    Cormen, Thomas H.; Leiserson, Charles E.; Rivest, Ronald L. (1990), Introduction to Algorithms (1st ed.), MIT Press, ISBN 0-262-03141-8.
+    Dolev, Shlomi (2000), Self-Stabilization, MIT Press, ISBN 0-262-04178-2.
+    Elmasri, Ramez; Navathe, Shamkant B. (2000), Fundamentals of Database Systems (3rd ed.), Addison–Wesley, ISBN 0-201-54263-3.
+    Ghosh, Sukumar (2007), Distributed Systems – An Algorithmic Approach, Chapman & Hall/CRC, ISBN 978-1-58488-564-1.
+    Lynch, Nancy A. (1996), Distributed Algorithms, Morgan Kaufmann, ISBN 1-55860-348-4.
+    Herlihy, Maurice P.; Shavit, Nir N. (2008), The Art of Multiprocessor Programming, Morgan Kaufmann, ISBN 0-12-370591-6.
+    Papadimitriou, Christos H. (1994), Computational Complexity, Addison–Wesley, ISBN 0-201-53082-1.
+    Peleg, David (2000), Distributed Computing: A Locality-Sensitive Approach, SIAM, ISBN 0-89871-464-8
+
+Articoli
+
+    Cole, Richard; Vishkin, Uzi (1986), "Deterministic coin tossing with applications to optimal parallel list ranking", Information and Control 70 (1): 32–53, doi:10.1016/S0019-9958(86) 80023-7.
+    Keidar, Idit (2008), "Distributed computing column 32 – The year in review", ACM SIGACT News 39 (4): 53–54
+    Linial, Nathan (1992), "Locality in distributed graph algorithms", SIAM Journal on Computing 21 (1): 193–201, doi:10.1137/0221015.
+    Naor, Moni; Stockmeyer, Larry (1995), "What can be computed locally?", SIAM Journal on Computing 24 (6): 1259–1277, doi:10.1137/S0097539793254571.
+
+Siti web
+
+    Godfrey, Bill (2002). A primer on distributed computing.
+    Peter, Ian (2004). Ian Peter's History of the Internet. Retrieved 2009-08-04.
+
+Voci correlate
+
+    Lista dei progetti di calcolo distribuito
+    Sistema distribuito
+    Grid computing
+    BOINC
+    Distribuited thinking
+    Algoritmo dello spaccone
+
